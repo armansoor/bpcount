@@ -1,0 +1,41 @@
+{
+    "releaseDate": "2026-02-27T00:00:00-05:00",
+    "pageTitle": "BLACKPINK | DEADLINE",
+    "headerBrand": "YG ENTERTAINMENT PRESENTS",
+    "headerTitle": "DEADLINE",
+    "footerText": "&copy; 2026 BLACKPINK. FAN MADE COUNTDOWN.",
+    "concepts": [
+        {
+            "name": "JENNIE",
+            "role": "RUBY",
+            "text": "\"I run this town, countdown to the crown.\"",
+            "meta": "CONCEPT #1: THE RULER",
+            "color": "#ff69b4",
+            "glow": "rgba(255, 105, 180, 0.4)"
+        },
+        {
+            "name": "LISA",
+            "role": "GOLD",
+            "text": "\"Faster than time, leaving the shadows behind.\"",
+            "meta": "CONCEPT #2: THE SPEED",
+            "color": "#ffd700",
+            "glow": "rgba(255, 215, 0, 0.4)"
+        },
+        {
+            "name": "JISOO",
+            "role": "VIOLET",
+            "text": "\"Silence speaks louder when the deadline hits.\"",
+            "meta": "CONCEPT #3: THE MYSTERY",
+            "color": "#e0b0ff",
+            "glow": "rgba(224, 176, 255, 0.4)"
+        },
+        {
+            "name": "ROSÉ",
+            "role": "PLATINUM",
+            "text": "\"Breaking the glass, nothing is built to last.\"",
+            "meta": "CONCEPT #4: THE VOICE",
+            "color": "#ffffff",
+            "glow": "rgba(255, 255, 255, 0.4)"
+        }
+    ]
+}
