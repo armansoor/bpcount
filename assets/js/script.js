@@ -1,12 +1,61 @@
+import { ParticleSystem } from './modules/particles.js';
+import { initTilt } from './modules/tilt.js';
+import { initGlitchScroll } from './modules/glitch.js';
+import { GlobalMap } from './modules/map.js';
+import { initSocialFeatures } from './modules/social.js';
+import { initCyberPet } from './modules/pet.js';
+import { initUnlockables } from './modules/unlockable.js';
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Fetch Configuration
+    // 1. Initialize Loader
+    initLoader();
+
+    // 2. Fetch Configuration
     fetch('assets/data/config.json')
         .then(response => response.json())
         .then(config => {
             initializePage(config);
+
+            // Initialize Visual Effects
+            new ParticleSystem('particles-canvas');
+            initTilt();
+            initGlitchScroll();
+
+            // Initialize Social Features
+            new GlobalMap('map-canvas', 'blink-counter');
+            initSocialFeatures();
+
+            // Initialize Fun Features
+            initCyberPet();
+            initUnlockables();
         })
         .catch(error => console.error('Error loading config:', error));
 });
+
+function initLoader() {
+    const loader = document.getElementById('loader');
+    const progress = document.querySelector('.loader-progress');
+    const text = document.querySelector('.loader-text');
+    let width = 0;
+
+    const interval = setInterval(() => {
+        width += Math.random() * 10;
+        if (width > 100) width = 100;
+        progress.style.width = width + '%';
+        text.innerText = `DECRYPTING ${Math.floor(width)}%`;
+
+        if (width === 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    document.body.classList.remove('loading');
+                }, 800);
+            }, 500);
+        }
+    }, 100);
+}
 
 let conceptsData = [];
 let releaseDate = 0;

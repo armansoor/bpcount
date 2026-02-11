@@ -8,10 +8,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/loader.css">
+    <link rel="stylesheet" href="assets/css/modules/social.css">
 </head>
-<body>
+<body class="loading">
 
-    <div class="bg-mesh"></div>
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-text">DECRYPTING 0%</div>
+        <div class="loader-bar"><div class="loader-progress"></div></div>
+    </div>
+
+    <!-- Background Canvas for Particles -->
+    <canvas id="particles-canvas" class="bg-mesh"></canvas>
 
     <header>
         <div class="brand" id="brand">YG ENTERTAINMENT PRESENTS</div>
@@ -45,10 +54,29 @@
         </div>
     </section>
 
+    <!-- Social & Interactive Section -->
+    <section class="social-section">
+        <a href="#" id="share-btn" class="btn-cyber">SHARE HYPE</a>
+        <a href="https://forms.google.com" target="_blank" class="btn-cyber">NOTIFY ME</a>
+    </section>
+
+    <section class="map-section">
+        <h3 class="map-title">GLOBAL NETWORK STATUS</h3>
+        <canvas id="map-canvas"></canvas>
+        <div class="blink-counter">BLINKS ONLINE: <span id="blink-counter">14,203</span></div>
+    </section>
+
+    <div class="comment-wall-wrapper">
+        <div class="comment-wall-title">LIVE FEED</div>
+        <div class="comment-track">
+            <div class="comment-list" id="comment-list"></div>
+        </div>
+    </div>
+
     <footer id="footer">
         &copy; 2026 BLACKPINK. FAN MADE COUNTDOWN.
     </footer>
 
-    <script src="assets/js/script.js"></script>
+    <script type="module" src="assets/js/script.js"></script>
 </body>
 </html>

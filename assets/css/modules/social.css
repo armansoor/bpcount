@@ -1,0 +1,124 @@
+/* --- SOCIAL & INTERACTIVE --- */
+.social-section {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-cyber {
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 15px 30px;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-cyber:hover {
+    background: var(--accent-color);
+    color: #000;
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.btn-cyber::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s;
+}
+
+.btn-cyber:hover::before {
+    left: 100%;
+}
+
+/* --- COMMENT WALL --- */
+.comment-wall-wrapper {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 20px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    position: relative;
+}
+
+.comment-wall-title {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.comment-track {
+    display: flex;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.comment-list {
+    display: flex;
+    gap: 30px;
+    animation: scrollText 30s linear infinite;
+    white-space: nowrap;
+}
+
+.comment-item {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.comment-user {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+@keyframes scrollText {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* --- GLOBAL MAP --- */
+.map-section {
+    max-width: 1000px;
+    margin: 40px auto;
+    position: relative;
+    text-align: center;
+}
+
+.map-title {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    letter-spacing: 4px;
+}
+
+.blink-counter {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#map-canvas {
+    width: 100%;
+    height: 400px;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--glass-border);
+}
