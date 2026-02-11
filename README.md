@@ -21,10 +21,17 @@ Edit the file `assets/data/config.json`:
 }
 ```
 
-- **releaseDate**: ISO 8601 format (e.g., `YYYY-MM-DDTHH:mm:ss`).
-- **concepts**: An array of objects for each member/concept.
-
 ## Features
 - **Dynamic Content**: Powered by a JSON configuration file.
-- **Responsive Design**: Optimized for Mobile, Tablet, and Desktop.
-- **Animations**: Glitch effects, floating animations, and smooth transitions.
+- **Visuals**:
+    - Cinematic "Decrypting" Loading Screen.
+    - Interactive Particle Background.
+    - 3D Tilt Effect on Concept Cards.
+    - Glitch/Distortion effects on fast scrolling.
+- **Social**:
+    - "Share Hype" button (Twitter/X).
+    - Simulated "Global Network Status" map with real-time visualization.
+    - Live Comment Feed (Simulated).
+- **Fun**:
+    - "Cyber-Pet" cursor follower.
+    - **Secret Code**: Type **"BLINK"** on your keyboard to unlock a hidden message.
