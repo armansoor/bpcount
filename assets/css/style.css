@@ -1,0 +1,270 @@
+:root {
+    /* Default Theme */
+    --bg-color: #050505;
+    --accent-color: #ff69b4; /* BP Pink */
+    --accent-glow: rgba(255, 105, 180, 0.4);
+    --text-main: #ffffff;
+    --text-muted: #888888;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: color 0.5s ease, border-color 0.5s ease, background-color 0.5s ease;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- BACKGROUND MESH --- */
+.bg-mesh {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 15% 50%, var(--accent-glow) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(100,100,255,0.1) 0%, transparent 25%);
+    filter: blur(80px);
+    opacity: 0.6;
+    animation: pulseGlow 10s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% { opacity: 0.4; }
+    100% { opacity: 0.7; }
+}
+
+/* --- HEADER & GLITCH TITLE --- */
+header {
+    padding: 60px 20px;
+    text-align: center;
+    margin-top: 5vh;
+}
+
+.brand {
+    font-size: 1rem;
+    letter-spacing: 8px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.glitch-title {
+    font-family: 'Syncopate', sans-serif;
+    font-weight: 700;
+    font-size: clamp(3rem, 10vw, 7rem); /* Fluid typography */
+    text-transform: uppercase;
+    position: relative;
+    color: var(--text-main);
+    letter-spacing: -2px;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+/* Simple Glitch Effect on Hover */
+.glitch-title:hover {
+    text-shadow: 2px 0 var(--accent-color), -2px 0 cyan;
+}
+
+/* --- COUNTDOWN TIMER (Glassmorphism) --- */
+.timer-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 80px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.time-unit {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    padding: 25px 30px;
+    min-width: 120px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.time-unit:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.time-val {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1;
+}
+
+.time-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 10px;
+    color: var(--accent-color);
+}
+
+/* --- INTERACTIVE CONCEPT SELECTOR --- */
+.concept-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.concept-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Default 4 columns */
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+.concept-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.concept-card:hover, .concept-card.active {
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px -10px var(--accent-glow);
+}
+
+.concept-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 3px;
+    background: var(--card-color, #fff);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+}
+
+.concept-card:hover::before, .concept-card.active::before {
+    transform: scaleX(1);
+}
+
+.concept-name {
+    font-family: 'Syncopate', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    pointer-events: none;
+}
+
+.concept-role {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    pointer-events: none;
+}
+
+/* --- TEASER DISPLAY AREA --- */
+.teaser-display {
+    text-align: center;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 60px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.teaser-text {
+    font-size: 1.8rem;
+    font-style: italic;
+    margin-bottom: 25px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    line-height: 1.4;
+}
+
+.teaser-meta {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    color: var(--accent-color);
+    opacity: 0;
+    animation: fadeUp 0.6s 0.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* --- FOOTER --- */
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid var(--glass-border);
+    font-size: 0.8rem;
+    color: #555;
+    letter-spacing: 1px;
+}
+
+/* Animations */
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- RESPONSIVE DESIGN --- */
+
+/* Tablet (Portrait) and smaller desktops */
+@media (max-width: 1024px) {
+    .time-val { font-size: 2.5rem; }
+    .concept-grid { gap: 15px; }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    header { padding: 40px 15px; }
+    .glitch-title { margin-bottom: 30px; }
+
+    .timer-wrapper { gap: 10px; margin-bottom: 50px; }
+    .time-unit { min-width: 70px; padding: 15px 10px; }
+    .time-val { font-size: 1.8rem; }
+    .time-label { font-size: 0.6rem; letter-spacing: 1px; }
+
+    .concept-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    }
+
+    .teaser-text { font-size: 1.2rem; }
+}
+
+/* Very Small Screens */
+@media (max-width: 480px) {
+    .brand { letter-spacing: 4px; font-size: 0.8rem; }
+    .glitch-title { font-size: 3rem; } /* Fallback if clamp isn't perfect */
+
+    .concept-grid {
+        grid-template-columns: 1fr; /* 1 column on small phones */
+    }
+}
